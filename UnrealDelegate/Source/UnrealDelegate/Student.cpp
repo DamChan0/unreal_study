@@ -3,11 +3,15 @@
 
 #include "Student.h"
 #include "Card.h"
-
 UStudent::UStudent()
 {
 	Name = TEXT("이학생");
 	Card->SetCardType(ECardType::Student);
+}
+
+void UStudent::GetCourseNoti(const FString& School, const FString& NewContents)
+{
+	UE_LOG(LogTemp, Log, TEXT("%s님이 %s에서 새로운 공지사항: %s을 받았습니다."), *Name ,*School, *NewContents);
 }
 
 void UStudent::DoLesson()
