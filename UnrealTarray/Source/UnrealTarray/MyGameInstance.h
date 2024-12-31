@@ -9,6 +9,29 @@
 /**
  * 
  */
+USTRUCT()
+struct FStudentData
+{
+	GENERATED_BODY()
+		
+	FStudentData()
+	{
+		Name = TEXT("김동민");
+		Order = -1 ;
+	}
+	FStudentData(FString InName, int order): Name(InName), Order(order)
+	{}
+
+	UPROPERTY()
+	FString Name;
+
+	UPROPERTY()
+	int Order; 
+	
+	
+};
+
+
 UCLASS()
 class UNREALTARRAY_API UMyGameInstance : public UGameInstance
 {
@@ -16,6 +39,7 @@ class UNREALTARRAY_API UMyGameInstance : public UGameInstance
 
 public:
 	virtual void Init() override;
-	
-	
+
+private:
+	TArray<FStudentData> StudentArray;
 };
